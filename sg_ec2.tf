@@ -40,6 +40,6 @@ resource "aws_security_group" "instancesg" {
     cidr_blocks       = ["0.0.0.0/0"]
 
   }
-  vpc_id = aws_vpc.cloudforce_vpc.id
+  vpc_id = aws_vpc.demo_vpc.id
 
 }

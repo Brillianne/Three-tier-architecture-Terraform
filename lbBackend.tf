@@ -5,8 +5,8 @@ resource "aws_lb" "backend_lb" {
   security_groups    = [aws_security_group.lbsecuritygroupB.id]
 
   subnets = [
-    aws_subnet.cloudforce_privateA.id,
-    aws_subnet.cloudforce_privateB.id
+    aws_subnet.private_subnetA.id,
+    aws_subnet.private_subnetB.id
   ]
 }
 
@@ -14,7 +14,7 @@ resource "aws_lb_target_group" "backendTG" {
   name     = "backendTG"
   port     = 80
   protocol = "HTTP"
-  vpc_id   = aws_vpc.cloudforce_vpc.id
+  vpc_id   = aws_vpc.demo_vpc.id
 
   health_check {
     enabled             = true

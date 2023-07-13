@@ -6,8 +6,8 @@ resource "aws_autoscaling_group" "backendASG" {
   health_check_type = "EC2"
 
   vpc_zone_identifier = [
-    aws_subnet.cloudforce_privateA.id,
-    aws_subnet.cloudforce_privateB.id
+    aws_subnet.public_subnetA.id,
+    aws_subnet.public_subnetB.id
   ]
 
   target_group_arns = [aws_lb_target_group.backendTG.arn]

@@ -1,13 +1,13 @@
 resource "aws_autoscaling_group" "frontendASG" {
   name     = "frontendASG"
   min_size = 2
-  max_size = 6
+  max_size = 4
 
   health_check_type = "EC2"
 
   vpc_zone_identifier = [
-    aws_subnet.cloudforce_publicA.id,
-    aws_subnet.cloudforce_publicB.id
+    aws_subnet.public_subnetA.id,
+    aws_subnet.public_subnetB.id
   ]
 
   target_group_arns = [aws_lb_target_group.frontendTG.arn]
